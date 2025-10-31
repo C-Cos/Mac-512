@@ -1,4 +1,4 @@
-const cheerio = require("cheerio");
+import * as cheerio from "cheerio";
 
 const urlMacBook =
   "https://www.apple.com/fr/shop/refurbished/mac/macbook-air-16-go";
@@ -11,7 +11,7 @@ export const searchMacBookAir = async () => {
       return $(this).text();
     })
     .toArray();
-  return items.filter((v) => v.includes("Air") && v.includes("13"));
+  return items.filter((v: string) => v.includes("Air") && v.includes("13"));
 };
 
 export const searchIphone16 = async () => {
@@ -22,5 +22,5 @@ export const searchIphone16 = async () => {
     })
     .toArray();
   console.log(items);
-  return items.filter((v) => v.includes("16"));
+  return items.filter((v: string) => v.includes("16"));
 };
