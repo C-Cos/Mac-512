@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import { createMessage } from "./twilio";
 
 const urlMacBook =
   "https://www.apple.com/fr/shop/refurbished/mac/macbook-air-16-go";
@@ -23,3 +24,5 @@ export const searchIphone16 = async () => {
     .toArray();
   return items.filter((v: string) => v.includes("16"));
 };
+
+createMessage();
