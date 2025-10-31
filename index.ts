@@ -21,6 +21,5 @@ export const searchIphone16 = async () => {
       return $(this).text();
     })
     .toArray();
-  console.log(items);
   return items.filter((v: string) => v.includes("16"));
 };
