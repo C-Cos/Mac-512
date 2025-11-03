@@ -15,9 +15,15 @@
   "dependencies": {
     "axios": "^1.13.0",
     "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
     "node-cron": "^4.2.1",
     "puppeteer": "^24.26.1",
     "twilio": "^5.10.4",
     "typescript": "^5.9.3"
+  },
+  "imports": {
+    "#twilio": "./twilio.ts",
+    "#search": "./search.ts",
+    "#utils": "./utils.ts"
   }
 }
