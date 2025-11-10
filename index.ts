@@ -1,26 +1,24 @@
-import createMessage from "#twilio";
-import { searchIphone16 } from "#search";
-import { searchMacBookAir } from "#search";
-import isEmpty from "#utils";
+import express from "express";
+import expressLoader from "./express.ts";
+import config from "./config.js";
+import Logger from "./logger.ts";
 
-const startJob = async () => {
-  searchIphone16()
-    .then((res) => {
-      if (!isEmpty(res))
-        createMessage("There is some refurbished Iphone 16 available !");
-    })
-    .catch((e) => {
-      throw new Error("Something went wrong looking for Iphones", e);
-    });
+async function startServer() {
+  const app = express();
 
-  searchMacBookAir()
-    .then((res) => {
-      if (!isEmpty(res))
-        createMessage("There is some refurbished MacBook Air available !");
-    })
-    .catch((e) => {
-      throw new Error("Something went wrong looking for Macbooks", e);
-    });
-};
+  await expressLoader(app);
+  Logger.info("✌️ Express loaded");
 
-startJob();
+  app.listen(config.port, (err: any) => {
+    if (err) {
+      Logger.error(err);
+      process.exit(1);
+    }
+    Logger.info(`
+            ################################################
+            🛡️  Server listening on port: ${config.port} 🛡️ 
+            ################################################
+        `);
+  });
+}
+startServer();

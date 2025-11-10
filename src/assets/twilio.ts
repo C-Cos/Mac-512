@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import twilio from "twilio";
+import Logger from "#logger";
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ async function createMessage(textMessage: string) {
     to: "+33659949364",
   });
 
-  console.log(message.body);
+  Logger.info(`message.body`);
 }
 
 export default createMessage;
