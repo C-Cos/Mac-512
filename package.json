@@ -20,6 +20,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-winston": "^4.2.0",
+    "git-filter-repo": "^0.0.30",
     "node-cron": "^4.2.1",
     "puppeteer": "^24.26.1",
     "twilio": "^5.10.4",
